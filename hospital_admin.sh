@@ -23,4 +23,10 @@ else
 fi       
 }
 
+initialize_system() {
+    create_if_missing "$dir_active_logs"
+    create_if_missing "$dir_archived_logs"
+    create_if_missing "$dir_reports"
+}
+
 
