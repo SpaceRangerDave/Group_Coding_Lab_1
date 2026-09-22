@@ -29,4 +29,4 @@ initialize_system() {
     create_if_missing "$dir_reports"
 }
 
-
+initialize_system
