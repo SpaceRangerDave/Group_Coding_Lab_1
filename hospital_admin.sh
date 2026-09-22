@@ -30,3 +30,19 @@ initialize_system() {
 }
 
 initialize_system
+
+#Member 2 Security Lead
+secure_data() {
+   echo ""
+   echo "== Securing active_logs =="
+
+   chmod 700 active_logs
+
+   if [ -n "$(ls -A active_logs 2>/dev/null)" ]; then
+       chmod 600 active_logs/*
+   fi
+
+   echo "Updated permissions for active_logs:"
+   ls -ld active_logs
+   ls -l active_logs
+
