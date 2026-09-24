@@ -10,3 +10,11 @@ process_vitals() {
     local temp_log="active_logs/temperature_log.log"
     local output_file="reports/critical_alerts.txt"
 }
+ if [ -f "$hr_log" ] && [ -f "$temp_log" ]; then
+
+        # Grep finds CRITICAL rows; awk strictly cleans up fields using ' | ' separator
+        grep -h "CRITICAL" "$hr_log" "$temp_log" | \
+        awk -F ' \| ' '{print $1 " | Device: " $2 " | Value: " $3}' > "$output_file"
+
+    fi
+}
