@@ -16,5 +16,10 @@ process_vitals() {
         grep -h "CRITICAL" "$hr_log" "$temp_log" | \
         awk -F ' \| ' '{print $1 " | Device: " $2 " | Value: " $3}' > "$output_file"
 
+
+        echo "Emergency warnings safely stored in $output_file."
+        echo "Total critical events recorded: $(wc -l < "$output_file")"
+    else
+        echo "ERROR: Expected log files not found in active_logs/."
     fi
 }
