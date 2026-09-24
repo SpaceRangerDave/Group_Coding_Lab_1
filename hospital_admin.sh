@@ -29,7 +29,6 @@ initialize_system() {
     create_if_missing "$dir_reports"
 }
 
-initialize_system
 
 #Member 2 Security Lead
 secure_data() {
@@ -46,3 +45,11 @@ secure_data() {
    ls -ld active_logs
    ls -l active_logs
 
+#Member  3 The Orchestrator
+system_environment(){
+  initialize_system
+  secure_data
+  current_date=$(date %F)
+  echo "System Environment Secured on: $current_date"
+}
+system_environment
